@@ -1,0 +1,17 @@
+{
+    "name": "K4os.Compression.LZ4.Unity",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "System.Memory.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
