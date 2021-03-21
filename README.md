@@ -1,3 +1,4 @@
+![odinLZ4](https://user-images.githubusercontent.com/29813954/111915103-582fba00-8a7d-11eb-865d-1bd6b880bece.png)
 # OdinLZ4Extension
 
 The fastest and most efficient binary compression solution for [Odin](https://odininspector.com)
