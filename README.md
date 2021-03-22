@@ -98,8 +98,9 @@ byte[] data = OdinLZ4API.SerializeValue(compressMe, DataFormat.Binary, compressi
 // Deserialize
 SomeClass deserializedData = OdinLZ4API.DeserializeValue<SomeClass>(data, DataFormat.Binary);
 
-// or use lazy version for de/serializtion in binary format
+// ---
 
+// Or use lazy version for de/serializtion in binary format
 byte[] lazy = OdinLZ4API.LazySerialization(compressMe);
 
 SomeClass deserializedData = OdinLZ4API.LazyDeserialization<SomeClass>(lazy);
