@@ -15,10 +15,7 @@
         "System.Runtime.CompilerServices.Unsafe.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": [
-        "ODIN_INSPECTOR",
-        "ODIN_INSPECTOR_3"
-    ],
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }

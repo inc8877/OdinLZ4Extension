@@ -1,7 +1,7 @@
 ![odinLZ4](https://user-images.githubusercontent.com/29813954/111915103-582fba00-8a7d-11eb-865d-1bd6b880bece.png)
 # OdinLZ4Extension
 
-The fastest and most efficient binary compression solution for [Odin](https://odininspector.com)
+The fastest and most efficient binary compression solution for [Odin](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
 
 ## Navigation
 
@@ -19,7 +19,7 @@ The fastest and most efficient binary compression solution for [Odin](https://od
 
 ## About
 
-[Odin](https://odininspector.com) is one of the most popular development tools for Unity,
+[Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041) is one of the most popular development tools for Unity,
 its power and functionality is incredible, one of the main functions is de/serialization of data,
 it is extremely important function for most who use "Odin".
 
@@ -59,12 +59,16 @@ More info [here](http://lz4.github.io/lz4)
 
 ## Dependencies
 
-- [Odin Serializer](https://odininspector.com/odin-serializer)
+- [Odin](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
 - System libraries
   - [System.Memory](https://www.nuget.org/packages/System.Memory/)
+  - [System.Buffers](https://www.nuget.org/packages/System.Buffers/)
   - [System.Runtime.CompilerServices.Unsafe](https://www.nuget.org/packages/System.Runtime.CompilerServices.Unsafe/)
 
-> The `OdinLZ4Extension` does not contain any source materials of the `Sirenix`, you can get `Odin Serializer` [on the official website](https://odininspector.com/download)
+> The `OdinLZ4Extension` does not contain any source materials of the `Sirenix`, you can get `Odin - Inspector and Serializer` [on the AssetStore](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
+
+>At the moment `OdinLZ4Extension` only supports [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)  
+If you are only using the [Odin Serializer](https://odininspector.com/odin-serializer) then this extension will not be successfully imported into the Unity project. The reason for this is different `dll`s and namespaces. If you are using only [Odin Serializer](https://odininspector.com/odin-serializer) and would like to have this extension, [write me](#contanct) and I will add this point to the [roadmap](#roadmap).
 
 ## How to use
 
