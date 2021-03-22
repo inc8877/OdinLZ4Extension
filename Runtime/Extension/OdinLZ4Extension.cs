@@ -30,15 +30,31 @@ namespace OdinLZ4Extension
     {
         #region Serialize
 
-        public static byte[] SerializeValue(object value, DataFormat format, SerializationContext ctx = null,
-            LZ4Level compressionLevel = LZ4Level.L00_FAST) =>
-            OdinLZ4Engine.Encode(SerializationUtility.SerializeValue(value, format, ctx), compressionLevel);
+        /// <summary>
+        /// Short version of <see cref="SerializeValue(object, DataFormat, SerializationContext, OdinLZ4Level)"/>
+        /// for fast data serialization in binary format
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static byte[] LazySerialization(object value) => SerializeValue(value, DataFormat.Binary);
         
+        public static byte[] SerializeValue(object value, DataFormat format, SerializationContext ctx = null,
+            OdinLZ4Level level = OdinLZ4Level.FAST) =>
+            OdinLZ4Engine.Encode(SerializationUtility.SerializeValue(value, format, ctx), (LZ4Level)level);
 
         #endregion
 
         #region Deserialize
 
+        /// <summary>
+        /// Short version of <see cref="DeserializeValue{TResult}(byte[], DataFormat, DeserializationContext)"/>
+        /// for fast data deserialization in binary format
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static TResult LazyDeserialization<TResult>(byte[] bytes) => DeserializeValue<TResult>(bytes, DataFormat.Binary);
+        
         public static TResult DeserializeValue<TResult>(byte[] bytes, DataFormat format, DeserializationContext ctx = null) =>
             SerializationUtility.DeserializeValue<TResult>(OdinLZ4Engine.Decode(bytes), format, ctx);
     

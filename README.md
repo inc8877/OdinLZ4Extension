@@ -88,11 +88,17 @@ using OdinLZ4Extension;
 [Serializable] public class SomeClass { public int a; public string someData; }
 [SerializeField] private SomeClass compressMe = new SomeClass() { a = 100, someData = "It's work!" };
 
-//Serialize
-byte[] data = OdinLZ4API.SerializeValue(compressMe, DataFormat.Binary, compressionLevel:LZ4Level.L00_FAST);
+// Serialize
+byte[] data = OdinLZ4API.SerializeValue(compressMe, DataFormat.Binary, compressionLevel:OdinLZ4Level.MAX);
 
-//Deserialize
+// Deserialize
 SomeClass deserializedData = OdinLZ4API.DeserializeValue<SomeClass>(data, DataFormat.Binary);
+
+// or use lazy version for de/serializtion in binary format
+
+byte[] lazy = OdinLZ4API.LazySerialization(compressMe);
+
+SomeClass deserializedData = OdinLZ4API.LazyDeserialization<SomeClass>(lazy);
 ```
 
 ## How to install System libraries for LZ4

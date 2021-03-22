@@ -22,6 +22,7 @@ limitations under the License.
 
 using System.Diagnostics;
 using K4os.Compression.LZ4;
+using OdinLZ4Extension.Engine;
 using Sirenix.Serialization;
 
 namespace OdinLZ4Extension
@@ -42,7 +43,7 @@ namespace OdinLZ4Extension
             /// <param name="compressionLevel"></param>
             /// <returns></returns>
             public static string GetEfficiency(object value, DataFormat format, SerializationContext ctx = null,
-                LZ4Level compressionLevel = LZ4Level.L00_FAST)
+                OdinLZ4Level compressionLevel = OdinLZ4Level.FAST)
             {
                 float compressedLengh = SerializeValue(value, format, ctx, compressionLevel).Length;
                 float uncompressedLengh = SerializationUtility.SerializeValue(value, format, ctx).Length;
@@ -58,7 +59,7 @@ namespace OdinLZ4Extension
             /// <param name="compressionLevel"></param>
             /// <returns></returns>
             public static string CalculatingSpeed(object value, DataFormat format, SerializationContext ctx = null,
-                LZ4Level compressionLevel = LZ4Level.L00_FAST)
+                OdinLZ4Level compressionLevel = OdinLZ4Level.FAST)
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
