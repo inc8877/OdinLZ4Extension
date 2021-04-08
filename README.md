@@ -12,7 +12,7 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [Roadmap](#roadmap)
   - [Compatibility](#compatibility)
   - [Dependencies](#dependencies)
-  - [How to use](#how-to-use)
+  - [Docs](#docs)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
   - [Contanct](#contanct)
@@ -70,7 +70,7 @@ More info [here](http://lz4.github.io/lz4)
 >At the moment `OdinLZ4Extension` only supports [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)  
 If you are only using the [Odin Serializer](https://odininspector.com/odin-serializer) then this extension will not be successfully imported into the Unity project. The reason for this is different `dll`s and namespaces. If you are using only [Odin Serializer](https://odininspector.com/odin-serializer) and would like to have this extension, [write me](#contanct) and I will add this point to the [roadmap](#roadmap).
 
-## How to use
+## Docs
 
 1. Include LZ4 necessary libraries ([how to do it](#how-to-install-system-libraries-for-lz4))
 
