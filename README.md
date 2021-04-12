@@ -59,7 +59,6 @@ More info [here](http://lz4.github.io/lz4)
 
 |  Status   | Milestone                                                                     |
 | :-------: | :---------------------------------------------------------------------------- |
-| :rocket:  | Implement features that are available in the `SerializationUtility` using LZ4 |
 | :pushpin: | Cut out the main parts of the LZ4 engine and compile a lightweight `.dll`     |
 | :pushpin: | Multithread de/compressing and de/serializing                                 |
 | :pushpin: | De/Serialization performance tests with and without compression               |
