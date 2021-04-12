@@ -17,6 +17,15 @@ The fastest and most efficient binary compression solution for [Odin](https://as
     - [Serialization](#serialization)
       - [Base Serialization](#base-serialization)
       - [Lazy Serialization](#lazy-serialization)
+      - [Serialization with Unity object references](#serialization-with-unity-object-references)
+      - [Lazy Serialization with Unity object references](#lazy-serialization-with-unity-object-references)
+    - [Deserialization](#deserialization)
+      - [Base Deserialization](#base-deserialization)
+      - [Lazy Deserialization](#lazy-deserialization)
+      - [Deserialization with Unity object references](#deserialization-with-unity-object-references)
+      - [Lazy Deserialization with Unity object references](#lazy-deserialization-with-unity-object-references)
+    - [Compression levels](#compression-levels)
+    - [Examples](#examples)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
   - [Contanct](#contanct)
@@ -102,11 +111,7 @@ Several methods are provided for serialization with subsequent compression.
 SerializeValue<T>(T value, DataFormat format, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
-Example:
-
-```c#
-byte[] data = OdinLZ4API.SerializeValue(SERIALIZABLE_VALUE, DataFormat.Binary, compressionLevel:OdinLZ4Level.MAX);
-```
+---
 
 #### Lazy Serialization
 
@@ -116,10 +121,112 @@ Fast serialization in binary format.
 LazySerialization<T>(T value, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
-Example:
+---
+
+#### Serialization with Unity object references
 
 ```c#
-byte[] lazy = OdinLZ4API.LazySerialization(SERIALIZABLE_VALUE, OdinLZ4Level.OPTIMAL);
+SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
+```
+
+---
+
+#### Lazy Serialization with Unity object references
+
+```c#
+LazySerialization<T>(T value, out List<UnityEngine.Object> unityObjects, OdinLZ4Level level = OdinLZ4Level.FAST)
+```
+
+### Deserialization
+
+Several convenient methods are provided for deserializing compressed objects.
+
+#### Base Deserialization
+
+```c#
+TResult DeserializeValue<TResult>(byte[] bytes, DataFormat format, DeserializationContext ctx = null)
+```
+
+---
+
+#### Lazy Deserialization
+
+```c#
+TResult LazyDeserialization<TResult>(byte[] bytes)
+```
+
+---
+
+#### Deserialization with Unity object references
+
+Decompresses and deserializes a value of a given type from the given byte array in the given format, using the given list of Unity objects for external index reference resolution
+
+```c#
+TResult DeserializeValue<TResult>(byte[] bytes, DataFormat format, List<UnityEngine.Object> referencedUnityObjects, DeserializationContext ctx = null)
+```
+
+---
+
+#### Lazy Deserialization with Unity object references
+
+Fast data deserialization from binary format, using the given list of Unity objects for external index reference resolution
+
+```c#
+TResult LazyDeserialization<TResult>(byte[] bytes, List<UnityEngine.Object> referencedUnityObjects)
+```
+
+---
+
+### Compression levels
+
+When you compress serialized data, `FAST` compression is applied by default. You can choose the compression level for your needs.  
+Available compression levels:
+
+- FAST (maximum compression speed)
+- OPTIMAL (sweet spot, fast and efficient compression)
+- MAX (slower than others but most efficient)
+
+Code example:
+
+```c#
+OdinLZ4API.SerializeValue(SERIALIZABLE_VALUE, DataFormat.Binary, level: OdinLZ4Level.OPTIMAL);
+OdinLZ4API.LazySerialization(SERIALIZABLE_VALUE, OdinLZ4Level.MAX);
+```
+
+### Examples
+
+Code examples:
+
+```c#
+SimpleData deserializedSimpleData;
+RefersData deserializedRefersData;
+
+byte[] smplSerialization, refersSerialization;
+List<UnityEngine.Object> refs;
+
+// --- Serialization ---
+
+// Base serialization
+smplSerialization = OdinLZ4API.SerializeValue(simpleData, DataFormat.Binary, level:OdinLZ4Level.MAX);
+// Lazy Serialization
+smplSerialization = OdinLZ4API.LazySerialization(simpleData);
+
+// Serialization with Unity object references
+refersSerialization = OdinLZ4API.SerializeValue(refersData, DataFormat.Binary, out refs);
+// Lazy Serialization with Unity object references
+refersSerialization = OdinLZ4API.LazySerialization(refersData, out refs);
+
+// --- Derialization ---
+
+// Base deserialization
+deserializedSimpleData = OdinLZ4API.DeserializeValue<SimpleData>(smplSerialization, DataFormat.Binary);
+// Lazy deserialization
+deserializedSimpleData = OdinLZ4API.LazyDeserialization<SimpleData>(smplSerialization);
+
+// Deserialization using the given list of Unity objects for external index reference resolution
+deserializedRefersData = OdinLZ4API.DeserializeValue<RefersData>(refersSerialization, DataFormat.Binary, refs);
+// Lazy deserialization using the given list of Unity objects for external index reference resolution
+deserializedRefersData = OdinLZ4API.LazyDeserialization<RefersData>(refersSerialization, refs);
 ```
 
 ## How to install System libraries for LZ4
