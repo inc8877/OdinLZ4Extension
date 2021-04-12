@@ -1,4 +1,5 @@
 ![odinLZ4](https://user-images.githubusercontent.com/29813954/111915103-582fba00-8a7d-11eb-865d-1bd6b880bece.png)
+
 # OdinLZ4Extension
 
 The fastest and most efficient binary compression solution for [Odin](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
@@ -59,9 +60,9 @@ More info [here](http://lz4.github.io/lz4)
 
 |  Status   | Milestone                                                                     |
 | :-------: | :---------------------------------------------------------------------------- |
-| :pushpin: | Cut out the main parts of the LZ4 engine and compile a lightweight `.dll`     |
-| :pushpin: | Multithread de/compressing and de/serializing                                 |
+| :rocket:  | Multithread de/compressing and de/serializing                                 |
 | :pushpin: | De/Serialization performance tests with and without compression               |
+| :pushpin: | Cut out the main parts of the LZ4 engine and compile a lightweight `.dll`     |
 
 ## Compatibility
 
@@ -221,7 +222,7 @@ refersSerialization = OdinLZ4API.SerializeValue(refersData, DataFormat.Binary, o
 // Lazy Serialization with Unity object references
 refersSerialization = OdinLZ4API.LazySerialization(refersData, out refs);
 
-// --- Derialization ---
+// --- Deserialization ---
 
 // Base deserialization
 deserializedSimpleData = OdinLZ4API.DeserializeValue<SimpleData>(smplSerialization, DataFormat.Binary);
