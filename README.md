@@ -182,9 +182,9 @@ TResult LazyDeserialization<TResult>(byte[] bytes, List<UnityEngine.Object> refe
 When you compress serialized data, `FAST` compression is applied by default. You can choose the compression level for your needs.  
 Available compression levels:
 
-- FAST (maximum compression speed)
-- OPTIMAL (sweet spot, fast and efficient compression)
-- MAX (slower than others but most efficient)
+- `FAST` (maximum compression speed)
+- `OPTIMAL` (sweet spot, fast and efficient compression)
+- `MAX` (slower than others but most efficient)
 
 Code example:
 
@@ -198,6 +198,12 @@ OdinLZ4API.LazySerialization(SERIALIZABLE_VALUE, OdinLZ4Level.MAX);
 Code examples:
 
 ```c#
+[Serializable] public class SimpleData { public int a; public string someData; }
+[Serializable] public class RefersData { public GameObject player1, player2; public Vector3 somePos; }
+
+[SerializeField] private SimpleData simpleData = new SimpleData() { a = 100, someData = "It's work!" };
+[SerializeField] private RefersData refersData;
+
 SimpleData deserializedSimpleData;
 RefersData deserializedRefersData;
 
