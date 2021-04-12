@@ -12,7 +12,11 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [Roadmap](#roadmap)
   - [Compatibility](#compatibility)
   - [Dependencies](#dependencies)
-  - [Docs](#docs)
+  - [How to use](#how-to-use)
+    - [Preparation](#preparation)
+    - [Serialization](#serialization)
+      - [Base Serialization](#base-serialization)
+      - [Lazy Serialization](#lazy-serialization)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
   - [Contanct](#contanct)
@@ -70,7 +74,9 @@ More info [here](http://lz4.github.io/lz4)
 >At the moment `OdinLZ4Extension` only supports [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)  
 If you are only using the [Odin Serializer](https://odininspector.com/odin-serializer) then this extension will not be successfully imported into the Unity project. The reason for this is different `dll`s and namespaces. If you are using only [Odin Serializer](https://odininspector.com/odin-serializer) and would like to have this extension, [write me](#contanct) and I will add this point to the [roadmap](#roadmap).
 
-## Docs
+## How to use
+
+### Preparation
 
 1. Include LZ4 necessary libraries ([how to do it](#how-to-install-system-libraries-for-lz4))
 
@@ -86,24 +92,34 @@ using K4os.Compression.LZ4;
 using OdinLZ4Extension;
 ```
 
-<br> Code example:
+### Serialization
+
+Several methods are provided for serialization with subsequent compression.
+
+#### Base Serialization
 
 ```c#
-[Serializable] public class SomeClass { public int a; public string someData; }
-[SerializeField] private SomeClass compressMe = new SomeClass() { a = 100, someData = "It's work!" };
+SerializeValue<T>(T value, DataFormat format, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
+```
 
-// Serialize
-byte[] data = OdinLZ4API.SerializeValue(compressMe, DataFormat.Binary, compressionLevel:OdinLZ4Level.MAX);
+Example:
 
-// Deserialize
-SomeClass deserializedData = OdinLZ4API.DeserializeValue<SomeClass>(data, DataFormat.Binary);
+```c#
+byte[] data = OdinLZ4API.SerializeValue(SERIALIZABLE_VALUE, DataFormat.Binary, compressionLevel:OdinLZ4Level.MAX);
+```
 
-// ---
+#### Lazy Serialization
 
-// Or use lazy version for de/serializtion in binary format
-byte[] lazy = OdinLZ4API.LazySerialization(compressMe);
+Fast serialization in binary format.
 
-SomeClass deserializedData = OdinLZ4API.LazyDeserialization<SomeClass>(lazy);
+```c#
+LazySerialization<T>(T value, OdinLZ4Level level = OdinLZ4Level.FAST)
+```
+
+Example:
+
+```c#
+byte[] lazy = OdinLZ4API.LazySerialization(SERIALIZABLE_VALUE, OdinLZ4Level.OPTIMAL);
 ```
 
 ## How to install System libraries for LZ4
