@@ -108,7 +108,7 @@ Several methods are provided for serialization with subsequent compression.
 #### Base Serialization
 
 ```c#
-SerializeValue<T>(T value, DataFormat format, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
+byte[] SerializeValue<T>(T value, DataFormat format, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
 ---
@@ -118,7 +118,7 @@ SerializeValue<T>(T value, DataFormat format, SerializationContext ctx = null, O
 Fast serialization in binary format.
 
 ```c#
-LazySerialization<T>(T value, OdinLZ4Level level = OdinLZ4Level.FAST)
+byte[] LazySerialization<T>(T value, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
 ---
@@ -126,7 +126,7 @@ LazySerialization<T>(T value, OdinLZ4Level level = OdinLZ4Level.FAST)
 #### Serialization with Unity object references
 
 ```c#
-SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
+byte[] SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext ctx = null, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
 ---
@@ -134,7 +134,7 @@ SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unity
 #### Lazy Serialization with Unity object references
 
 ```c#
-LazySerialization<T>(T value, out List<UnityEngine.Object> unityObjects, OdinLZ4Level level = OdinLZ4Level.FAST)
+byte[] LazySerialization<T>(T value, out List<UnityEngine.Object> unityObjects, OdinLZ4Level level = OdinLZ4Level.FAST)
 ```
 
 ### Deserialization
