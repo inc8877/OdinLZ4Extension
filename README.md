@@ -10,6 +10,7 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [Navigation](#navigation)
   - [About](#about)
     - [What's under the hood](#whats-under-the-hood)
+  - [Performance tests](#performance-tests)
   - [Roadmap](#roadmap)
   - [Compatibility](#compatibility)
   - [Dependencies](#dependencies)
@@ -56,6 +57,17 @@ Original LZ4 has been written by Yann Collet and original 'C' sources can be fou
 More info [here](http://lz4.github.io/lz4)
 
 >If you find this project useful, star it, I will be grateful.
+
+## Performance tests
+
+### Execution time
+
+<img width="530" alt="test1" src="https://user-images.githubusercontent.com/29813954/114582906-b5d4b200-9c89-11eb-9b83-f5176b20a897.png">
+
+### Efficiency
+
+<img width="530" alt="test2" src="https://user-images.githubusercontent.com/29813954/114582928-bc632980-9c89-11eb-9137-c103fdeb8ddc.png">
+
 
 ## Roadmap
 
