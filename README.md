@@ -238,7 +238,7 @@ deserializedRefersData = OdinLZ4API.LazyDeserialization<RefersData>(refersSerial
 
 ## Easy update of existing code
 
-You can easily upgrade data de/serialization that is already implemented in your project to serialization with compression.
+You can easily upgrade data de/serialization that is already implemented in your project to de/serialization with compression.
 To do this, it is enough to plugin the necessary namespaces and simply replace `SerializationUtility` class to `OdinLZ4API`.
 
 Code example:
