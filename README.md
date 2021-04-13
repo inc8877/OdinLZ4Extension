@@ -262,15 +262,15 @@ Below is a list of methods in the `SerializationUtility` class that can be repla
 ```c#
 // --- Serialization ---
 
-byte[] SerializeValue<T>(T value, DataFormat format, SerializationContext context = null)
+byte[] SerializeValue<T>(T value, DataFormat format, SerializationContext context = null);
 
-byte[] SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext context = null)
+byte[] SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext context = null);
 
 // --- Deserialization ---
 
-T DeserializeValue<T>(byte[] bytes, DataFormat format, DeserializationContext context = null)
+T DeserializeValue<T>(byte[] bytes, DataFormat format, DeserializationContext context = null);
 
-T DeserializeValue<T>(byte[] bytes, DataFormat format, List<UnityEngine.Object> referencedUnityObjects, DeserializationContext context = null)
+T DeserializeValue<T>(byte[] bytes, DataFormat format, List<UnityEngine.Object> referencedUnityObjects, DeserializationContext context = null);
 ```
 
 ## How to install System libraries for LZ4
