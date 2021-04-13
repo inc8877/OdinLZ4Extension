@@ -11,6 +11,8 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [About](#about)
     - [What's under the hood](#whats-under-the-hood)
   - [Performance tests](#performance-tests)
+    - [Execution time](#execution-time)
+    - [Efficiency](#efficiency)
   - [Roadmap](#roadmap)
   - [Compatibility](#compatibility)
   - [Dependencies](#dependencies)
