@@ -73,11 +73,11 @@ More info [here](http://lz4.github.io/lz4)
 
 ## Roadmap
 
-|  Status   | Milestone                                                                     |
-| :-------: | :---------------------------------------------------------------------------- |
-| :rocket:  | Multithread de/compressing and de/serializing                                 |
-| :pushpin: | De/Serialization performance tests with and without compression               |
-| :pushpin: | Cut out the main parts of the LZ4 engine and compile a lightweight `.dll`     |
+|       Status       | Milestone                                                                 |
+| :----------------: | :------------------------------------------------------------------------ |
+|      :rocket:      | Multithread de/compressing and de/serializing                             |
+| :white_check_mark: | De/Serialization performance tests with and without compression           |
+|     :pushpin:      | Cut out the main parts of the LZ4 engine and compile a lightweight `.dll` |
 
 ## Compatibility
 
