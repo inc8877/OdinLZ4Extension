@@ -27,6 +27,7 @@ The fastest and most efficient binary compression solution for [Odin](https://as
       - [Lazy Deserialization with Unity object references](#lazy-deserialization-with-unity-object-references)
     - [Compression levels](#compression-levels)
     - [Examples](#examples)
+  - [Easy update of existing code](#easy-update-of-existing-code)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
   - [Contanct](#contanct)
@@ -233,6 +234,43 @@ deserializedSimpleData = OdinLZ4API.LazyDeserialization<SimpleData>(smplSerializ
 deserializedRefersData = OdinLZ4API.DeserializeValue<RefersData>(refersSerialization, DataFormat.Binary, refs);
 // Lazy deserialization using the given list of Unity objects for external index reference resolution
 deserializedRefersData = OdinLZ4API.LazyDeserialization<RefersData>(refersSerialization, refs);
+```
+
+## Easy update of existing code
+
+You can easily upgrade data de/serialization that is already implemented in your project to serialization with compression.
+To do this, it is enough to plugin the necessary namespaces and simply replace `SerializationUtility` class to `OdinLZ4API`.
+
+Code example:
+
+```c#
+// Necessary namespaces
+using K4os.Compression.LZ4;
+using OdinLZ4Extension;
+
+// Existing code
+SerializationUtility.SerializeValue(SERIALIZABLE_VALUE, DataFormat.Binary);
+SerializationUtility.DeserializeValue<SimpleData>(BYTES_ARRAY, DataFormat.Binary);
+
+// Upgraded code
+OdinLZ4API.SerializeValue(SERIALIZABLE_VALUE, DataFormat.Binary);
+OdinLZ4API.DeserializeValue<SimpleData>(BYTES_ARRAY, DataFormat.Binary);
+```
+
+Below is a list of methods in the `SerializationUtility` class that can be replaced by methods with compression:
+
+```c#
+// --- Serialization ---
+
+byte[] SerializeValue<T>(T value, DataFormat format, SerializationContext context = null)
+
+byte[] SerializeValue<T>(T value, DataFormat format, out List<UnityEngine.Object> unityObjects, SerializationContext context = null)
+
+// --- Deserialization ---
+
+T DeserializeValue<T>(byte[] bytes, DataFormat format, DeserializationContext context = null)
+
+T DeserializeValue<T>(byte[] bytes, DataFormat format, List<UnityEngine.Object> referencedUnityObjects, DeserializationContext context = null)
 ```
 
 ## How to install System libraries for LZ4
