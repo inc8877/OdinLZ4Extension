@@ -11,8 +11,7 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [About](#about)
     - [What's under the hood](#whats-under-the-hood)
   - [Performance tests](#performance-tests)
-    - [Execution time](#execution-time)
-    - [Efficiency](#efficiency)
+    - [Tests](#tests)
   - [Roadmap](#roadmap)
   - [Compatibility](#compatibility)
   - [Dependencies](#dependencies)
@@ -66,7 +65,7 @@ Serialization object:
 
 ```c#
 [Serializable]
-public class RefersData
+public class Eexperimental
 {
   public DirectionalLight DirectionalLight;
   public SpotLight SpotLight;
@@ -79,13 +78,8 @@ Configs:
 - Binary format
 - `FAST` level of compression
 
-### Execution time
+### Tests
 
-<img width="530" alt="test1" src="https://user-images.githubusercontent.com/29813954/114582906-b5d4b200-9c89-11eb-9b83-f5176b20a897.png">
-
-### Efficiency
-
-<img width="530" alt="test2" src="https://user-images.githubusercontent.com/29813954/114582928-bc632980-9c89-11eb-9137-c103fdeb8ddc.png">
 
 
 ## Roadmap
