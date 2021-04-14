@@ -62,6 +62,23 @@ More info [here](http://lz4.github.io/lz4)
 
 ## Performance tests
 
+Serialization object:
+
+```c#
+[Serializable]
+public class RefersData
+{
+  public DirectionalLight DirectionalLight;
+  public SpotLight SpotLight;
+  public PointLight PointLight;
+}
+```
+
+Configs:
+
+- Binary format
+- `FAST` level of compression
+
 ### Execution time
 
 <img width="530" alt="test1" src="https://user-images.githubusercontent.com/29813954/114582906-b5d4b200-9c89-11eb-9b83-f5176b20a897.png">
