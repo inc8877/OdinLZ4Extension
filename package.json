@@ -1,6 +1,6 @@
 {
   "name": "com.inc8877.odinlz4extension",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "OdinLZ4Extension",
   "description": "The fastest and most efficient binary compression solution for Odin",
   "homepage": "https://github.com/inc8877/OdinLZ4Extension#readme",

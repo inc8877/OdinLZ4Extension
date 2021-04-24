@@ -1,12 +1,16 @@
 # Changelog
 
-## v1.0.1
+## v1.1.0
 
 ### Added
 
 - package.json
 - OpenUPM support
 - RelatedMaterials folder (contains SystemsDLLs.zip for LZ4 work)
+
+### Changed
+
+- .gitignore (meta-files are included in the extension)
 
 ## v1.0.0
 
