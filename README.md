@@ -2,6 +2,8 @@
 
 # OdinLZ4Extension
 
+[![openupm](https://img.shields.io/npm/v/com.inc8877.odinlz4extension?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.inc8877.odinlz4extension/)
+
 The fastest and most efficient binary compression solution for [Odin](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
 
 ## Navigation
