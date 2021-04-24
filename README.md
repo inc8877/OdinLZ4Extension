@@ -29,6 +29,9 @@ The fastest and most efficient binary compression solution for [Odin](https://as
       - [Lazy Deserialization with Unity object references](#lazy-deserialization-with-unity-object-references)
     - [Compression levels](#compression-levels)
     - [Examples](#examples)
+  - [Installation](#installation)
+    - [Install via OpenUPM](#install-via-openupm)
+    - [Install via Git URL](#install-via-git-url)
   - [Easy update of existing code](#easy-update-of-existing-code)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
@@ -106,19 +109,16 @@ Configs:
 
 > The `OdinLZ4Extension` does not contain any source materials of the `Sirenix`, you can get `Odin - Inspector and Serializer` [on the AssetStore](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
 
->At the moment `OdinLZ4Extension` only supports [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)  
+> At the moment `OdinLZ4Extension` only supports [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)  
 If you are only using the [Odin Serializer](https://odininspector.com/odin-serializer) then this extension will not be successfully imported into the Unity project. The reason for this is different `dll`s and namespaces. If you are using only [Odin Serializer](https://odininspector.com/odin-serializer) and would like to have this extension, [write me](#contanct) and I will add this point to the [roadmap](#roadmap).
 
 ## How to use
 
 ### Preparation
 
-1. Include LZ4 necessary libraries ([how to do it](#how-to-install-system-libraries-for-lz4))
+1. Add the OdinLZ4Extension to your project ([how to do it](#installation))
 
-2. Add the OdinLZ4Extension to your project, you can do it in the following way:
-   - import [latest](https://github.com/inc8877/OdinLZ4Extension/releases) extension version via [UPM](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html)
-   - add extension as a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
-   - import source code
+2. Include LZ4 necessary libraries ([how to do it](#how-to-install-system-libraries-for-lz4))
 
 3. Plugin namespaces
 
@@ -126,6 +126,8 @@ If you are only using the [Odin Serializer](https://odininspector.com/odin-seria
 using K4os.Compression.LZ4;
 using OdinLZ4Extension;
 ```
+
+Done, use de/serialization + LZ4 in one line. [[Examples](#examples)]
 
 ### Serialization
 
@@ -261,6 +263,28 @@ deserializedRefersData = OdinLZ4API.DeserializeValue<RefersData>(refersSerializa
 deserializedRefersData = OdinLZ4API.LazyDeserialization<RefersData>(refersSerialization, refs);
 ```
 
+## Installation
+
+### Install via OpenUPM
+
+The package is available on the [openupm](https://openupm.com) registry. It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
+
+```c#
+openupm add com.inc8877.odinlz4extension
+```
+
+### Install via Git URL
+
+Open `Packages/manifest.json` with your favorite text editor. Add the following line to the dependencies block.
+
+```c#
+{
+  "dependencies": {
+    "com.inc8877.odinlz4extension": "https://github.com/inc8877/OdinLZ4Extension.git",
+   }
+}
+```
+
 ## Easy update of existing code
 
 You can easily upgrade data de/serialization that is already implemented in your project to de/serialization with de/compression.
@@ -303,9 +327,7 @@ T DeserializeValue<T>(byte[] bytes, DataFormat format, List<UnityEngine.Object> 
 Unity does not provide the necessary libraries for the LZ4, so you need to install them manually.
 The libraries can be downloaded via NuGet, but since the Unity does not work well with it, you need to get the `.dll` from the downloaded packages and put them into the `Assets` folder.
 
-If you don't want to bother with it then you can download the necessary `.dll` that are available in each [Release](https://github.com/inc8877/OdinLZ4Extension/releases)
-
-A good location for `.dll` in the project would be the `Assets/Plugins` folder.
+If you don't want to mess with it, you can get the `DLLs` in a `.zip` file located in the OdinLZ4Extension root folder (path: `Packages/OdinLZ4Extension/RelatedMaterials/SystemDLLs.zip`). Just unzip and place them in the project. (A good location for `.dll` in the project would be the `Assets/Plugins/System` folder)
 
 ## How to help the project
 
