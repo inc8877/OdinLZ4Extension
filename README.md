@@ -37,7 +37,7 @@ The fastest and most efficient binary compression solution for [Odin](https://as
   - [Easy update of existing code](#easy-update-of-existing-code)
   - [How to install System libraries for LZ4](#how-to-install-system-libraries-for-lz4)
   - [How to help the project](#how-to-help-the-project)
-  - [Contanct](#contanct)
+  - [Contact](#contact)
 
 ## About
 
@@ -341,6 +341,6 @@ if you are reading this means you may have liked this project and you can help b
   - serialization with compressing via multithreading
   - a pool of serialization tasks with callbacks
 
-## Contanct
+## Contact
 
 :octocat: <inc8877@gmail.com>
